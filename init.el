@@ -8,7 +8,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package doom-theme
+(use-package doom-themes
+	:ensure t
   :config (load-theme 'doom-one t))
 
 (use-package evil
