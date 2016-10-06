@@ -1,3 +1,12 @@
+;; no menu bar
+(menu-bar-mode -1)
+
+;; Disable tool bar
+(tool-bar-mode -1)
+
+;; disable scroll bars
+(scroll-bar-mode -1)
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
