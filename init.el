@@ -27,7 +27,14 @@
   :config (progn
 	    (evil-mode 1)
             (defalias #'forward-evil-word #'forward-evil-symbol)))
-(custom-set-variables
- '(package-selected-packages (quote (evil use-package doom-themes))))
-(custom-set-faces
- )
+
+(use-package magit
+  :ensure t
+  :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
+
+(setq-default indent-tabs-mode nil)
+
+(add-to-list 'auto-mode-alist
+  '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist
+  '("\\(?:Brewfile\\|Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
