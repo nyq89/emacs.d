@@ -43,7 +43,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (## alchemist use-package magit evil doom-themes))))
+ '(package-selected-packages
+   (quote
+    (smex counsel swiper ## alchemist use-package magit evil doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,3 +59,22 @@
 (use-package alchemist
   :ensure t
   :config (setq alchemist-mix-test-default-options "--no-start"))
+
+(use-package swiper
+  :ensure t)
+
+(use-package smex
+  :ensure t)
+
+(use-package counsel
+  :ensure t
+  :bind ("M-x" . counsel-M-x))
+
+(use-package ivy
+  :ensure t
+  :init (setq ivy-use-virtual-buffers t
+                ivy-height 10
+                ivy-count-format "(%d/%d) ")
+  :bind (("C-c C-r" . ivy-resume)
+         :map ivy-minibuffer-map ("RET" . ivy-alt-done))
+  :config (ivy-mode 1))
