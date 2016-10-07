@@ -43,15 +43,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0)
  '(package-selected-packages
    (quote
-    (smex counsel swiper ## alchemist use-package magit evil doom-themes))))
+    (robe smex counsel swiper ## alchemist use-package magit evil doom-themes))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-hook 'after-init-hook 'global-company-mode)
 
 (use-package elixir-mode
   :ensure t)
@@ -78,3 +81,11 @@
   :bind (("C-c C-r" . ivy-resume)
          :map ivy-minibuffer-map ("RET" . ivy-alt-done))
   :config (ivy-mode 1))
+
+(use-package company
+  :ensure t
+  :init (global-company-mode))
+
+(use-package robe
+  :ensure t
+  :init (add-hook 'ruby-mode-hook 'robe-mode))
