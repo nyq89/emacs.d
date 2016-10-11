@@ -33,6 +33,7 @@
   :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
 
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 (add-to-list 'auto-mode-alist
   '("\\.\\(?:cap\\|gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
